@@ -75,6 +75,21 @@ This repository contains the source code and setup instructions for a Face Blur 
 
 ---
 
+## Usage Instructions
+
+### 1. Clone the Repository
+```bash
+$ git clone https://github.com/sarveshwaran1678/pigo-openfaas-arm64-faceblur
+```
+
+### 2. Update the `stack.yml` File
+Before deploying, ensure you update the `stack.yml` file to replace placeholders with your details:
+
+- Replace `USERNAME` with your Docker Hub username.
+- Replace `IP` with the IP address of your OpenFaaS gateway.
+
+---
+
 ## Installation Steps
 
 ### 1. Build and Push the Docker Image
