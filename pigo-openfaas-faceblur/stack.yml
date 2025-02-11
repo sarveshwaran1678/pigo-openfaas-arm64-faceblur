@@ -1,0 +1,34 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://10.100.12.143:8080
+
+functions:
+  pigo-faceblur:
+    lang: golang-http
+    handler: ./pigo-openfaas-faceblur
+    image: sarveshwaran736479/face_blur:latest
+    environment:
+      # input_mode: "url"
+      output_mode: "json_image"
+      write_debug: true
+      read_timeout: "300s"       
+      write_timeout: "300s"      
+      exec_timeout: "300s"       
+      healthcheck_interval: "5s" 
+      max_inflight: "1"          
+    build_args:
+      TARGETARCH: arm64
+      TARGETPLATFORM: linux/arm64
+      CGO_ENABLED: "1"
+      GOOS: linux
+      GOARCH: arm64
+    labels:
+      com.openfaas.scale.min: "1"
+      com.openfaas.scale.max: "5" 
+    limits:
+      memory: 512Mi               
+      cpu: 200m                  
+    requests:
+      memory: 256Mi               
+      cpu: 100m                   
