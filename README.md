@@ -166,7 +166,7 @@ faas-cli logs pigo-faceblur --gateway=10.xxx.xx.xxx:8080
 - The `facefinder` data file is used for detecting faces and is located in the `data/` directory.
 - The `samples/` directory contains example input files.
 - The `output/` directory stores the generated results (Base64 and decoded images).
-- The application currently supports Linux ARM64 platforms but may require updates for compatibility with Raspberry Pi 4 and faasd nodes.
+
 
 ---
 
