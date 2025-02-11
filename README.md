@@ -71,7 +71,7 @@ This repository contains the source code and setup instructions for a Face Blur 
 
 3. **faasd Gateway** (Optional)
 
-   - If you are using faasd, ensure that your gateway is accessible. Example gateway: `10.xxx.xx.xxx:8080`.
+   - If you are using faasd, ensure that your gateway is accessible. Example gateway: `OpenFaas_Gateway_IP:8080`.
 
 ---
 
@@ -81,7 +81,7 @@ This repository contains the source code and setup instructions for a Face Blur 
 
 ```bash
 docker buildx build --platform linux/arm64 \
-  -t sarveshwaran736479/face_blur:latest \
+  -t dockerhub_username/face_blur:latest \
   -f Dockerfile . --push
 ```
 
@@ -90,13 +90,13 @@ docker buildx build --platform linux/arm64 \
 Login to the OpenFaaS Gateway:
 
 ```bash
-faas-cli login --username admin --password <password> --gateway=10.xxx.xx.xxx:8080
+faas-cli login --username admin --password <password> --gateway=OpenFaas_Gateway_IP:8080
 ```
 
 Deploy the function:
 
 ```bash
-faas-cli deploy --gateway=10.xxx.xx.xxx:8080
+faas-cli deploy --gateway=OpenFaas_Gateway_IP:8080
 ```
 
 ---
@@ -116,7 +116,7 @@ base64 samples/nasa.jpg > image.base64
 Invoke the deployed function using the OpenFaaS CLI:
 
 ```bash
-faas-cli invoke pigo-faceblur --gateway=http://10.xxx.xx.xxx:8080 < image.base64 > output.txt
+faas-cli invoke pigo-faceblur --gateway=http://OpenFaas_Gateway_IP:8080 < image.base64 > output.txt
 ```
 
 ### 3. Decode Output Image
@@ -156,7 +156,7 @@ You can visually compare the input and output images to verify that faces in the
 View the logs for the deployed function:
 
 ```bash
-faas-cli logs pigo-faceblur --gateway=10.xxx.xx.xxx:8080
+faas-cli logs pigo-faceblur --gateway=OpenFaas_Gateway_IP:8080
 ```
 
 ---

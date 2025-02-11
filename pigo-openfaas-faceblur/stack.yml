@@ -1,13 +1,13 @@
 version: 1.0
 provider:
   name: openfaas
-  gateway: http://10.100.12.143:8080
+  gateway: http://${IP}:8080
 
 functions:
   pigo-faceblur:
     lang: golang-http
     handler: ./pigo-openfaas-faceblur
-    image: sarveshwaran736479/face_blur:latest
+    image: ${USERNAME}/face_blur:latest
     environment:
       # input_mode: "url"
       output_mode: "json_image"
