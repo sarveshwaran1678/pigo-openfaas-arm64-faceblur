@@ -139,13 +139,13 @@ base64 -d output/output.base64 > output/output.jpeg
 
 The following image is used as input for the Face Blur application. It is stored in the `samples/images` directory.
 
-![Input Image](samples/images/nasa.jpg)
+![Input Image](pigo-openfaas-faceblur/samples/images/nasa.jpg)
 
 ### Output Image
 
 The processed image with blurred faces is generated and stored in the `output/images` directory.
 
-![Output Image](output/images/output.jpeg)
+![Output Image](pigo-openfaas-faceblur/output/images/output.jpeg)
 
 You can visually compare the input and output images to verify that faces in the input image have been successfully blurred in the output.
 
